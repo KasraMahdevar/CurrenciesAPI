@@ -29,6 +29,4 @@ class GetCurrencyValue:
                     return td.text
 
 
-# Ausgabe in Konsule
-# object = GetCurrencyValue('eur')
-# print(object.getValue())
+
