@@ -11,22 +11,35 @@ def currency_value(symbol: str):
     try:
         currency_object = GetCurrencyValue(currency_symbol=symbol)
     except ValueError as error:
-        return f'{error}'
-    else:
-        currency_value = currency_object.getValue() + ' Rial'
-        time = datetime.datetime.now()
+        status = 404
         data = {
-            'currency' : symbol,
-            'value' : currency_value,
-            'date_time': {
-                'date': str(datetime.date.today()),
-                'hour': str(time.hour),
-                'minute': str(time.minute),
-                'second': str(time.second)
+            'status': status,
+            'body': {
+                'error_text': str(error)
             }
         }
-        json_date = json.dumps(data)
-        return json_date
+        json_format = json.dumps(data)
+        return json_format
+    else:
+        currency_value = currency_object.getValue() + ' Rial'
+        status = 200
+        time = datetime.datetime.now()
+        data = {
+            'status': status,
+            'body': {
+                'currency': symbol,
+                'value': currency_value,
+                'date_time': {
+                    'date': str(datetime.date.today()),
+                    'hour': str(time.hour),
+                    'minute': str(time.minute),
+                    'second': str(time.second)
+                }
+            }
+
+        }
+        json_format = json.dumps(data)
+        return json_format
 
 
 if __name__ == '__main__':

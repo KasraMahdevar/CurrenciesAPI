@@ -12,7 +12,7 @@ class GetCurrencyValue:
         if currency_symbol in config['Names']:
             self.__currency_name = config['Names'][currency_symbol]
         else:
-            raise ValueError('Währung (Symbol) nicht in der Liste vorhanden.')
+            raise ValueError('Waehrung (Symbol) nicht in der Liste vorhanden.')
 
 
     def getValue(self):
