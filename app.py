@@ -21,7 +21,7 @@ def currency_value(symbol: str):
         json_format = json.dumps(data)
         return json_format
     else:
-        currency_value = currency_object.getValue() + ' Rial'
+        currency_value = currency_object.getValue()
         status = 200
         time = datetime.datetime.now()
         data = {
